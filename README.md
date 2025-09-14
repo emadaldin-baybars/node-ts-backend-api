@@ -372,6 +372,74 @@ If you encounter any issues or have questions, please:
 2. Search existing issues on GitHub
 3. Create a new issue with detailed information
 
+## 🛡️ GitHub Branch Protection
+
+This repository includes a pre-configured branch protection ruleset to secure your master branch.
+
+### Importing the Branch Protection Ruleset
+
+1. **Navigate to your GitHub repository settings:**
+   ```
+   https://github.com/YOUR_USERNAME/node-ts-backend-api/settings
+   ```
+
+2. **Go to "Rules" → "Rulesets"**
+
+3. **Click "New ruleset" → "Import a ruleset"**
+
+4. **Upload the ruleset file:**
+   ```
+   .github/branch-protection-ruleset.json
+   ```
+
+### Ruleset Configuration
+
+The ruleset includes the following protections for the `master` branch:
+
+- ✅ **Pull Request Required** - All changes must go through pull requests
+- ✅ **Review Required** - At least 1 approving review needed
+- ✅ **Dismiss Stale Reviews** - Reviews are dismissed when new commits are pushed
+- ✅ **Resolve Conversations** - All review threads must be resolved
+- ✅ **No Force Push** - Prevents force pushing to master
+- ✅ **No Deletion** - Prevents branch deletion
+- ✅ **Linear History** - Requires linear commit history
+- ✅ **Owner Bypass** - Repository owner can bypass all rules
+
+### Manual Setup (Alternative)
+
+If you prefer to set up branch protection manually:
+
+1. Go to **Settings** → **Branches**
+2. Click **Add rule**
+3. Configure the following:
+   - Branch name pattern: `master`
+   - ☑️ Require a pull request before merging
+   - ☑️ Require approvals (1)
+   - ☑️ Dismiss stale pull request approvals when new commits are pushed
+   - ☑️ Require conversation resolution before merging
+   - ☑️ Restrict pushes that create files larger than 100 MB
+   - ☑️ Do not allow bypassing the above settings (uncheck for owner bypass)
+
+### Workflow for Contributors
+
+1. **Fork the repository** (for external contributors)
+2. **Create a feature branch:**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. **Make your changes and commit:**
+   ```bash
+   git add .
+   git commit -m "Add your feature"
+   ```
+4. **Push to your branch:**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. **Create a Pull Request** on GitHub
+6. **Wait for review and approval**
+7. **Merge after approval**
+
 ---
 
 **Happy coding! 🎉**
